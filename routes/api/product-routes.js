@@ -111,10 +111,11 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
   Product.destroy({
-    // be sure to include its associated Category and Tag data
     where: {
       id: req.body.id
-    }, include: [
+    },
+    // be sure to include its associated Category and Tag data
+    include: [
       { model: Category },
       {
         model: Tag,

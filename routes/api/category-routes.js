@@ -56,7 +56,7 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   }).then((results) => {
-    res.json({
+    res.json(results, {
       data: 'ok'
     })
   })
