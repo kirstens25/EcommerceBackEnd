@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   // find one category by its `id` value
   Category.findByPk(req.params.id, {
-      // be sure to include its associated Products
+    // be sure to include its associated Products
     include: [
       { model: Product }
     ]
@@ -36,14 +36,29 @@ router.post('/', (req, res) => {
     res.json(created);
   })
 });
-
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
-Category.update(id)
+  Category.update({
+    name: req.body.name
+  }, {
+    where: {
+      id: req.params.id
+    }
+  }).then((updated) => {
+    res.json(updated);
+  })
 });
 
 router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
+  Category.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then((results) => {
+    res.json({
+      data: 'ok'
+    })
+  })
 });
-
-module.exports = router;
+  module.exports = router;
