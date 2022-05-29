@@ -12,7 +12,6 @@ router.get('/', (req, res) => {
       { model: Category },
       {
         model: Tag,
-        as: "product_tags"
       }
     ]
   }).then((results) => {
@@ -29,7 +28,7 @@ router.get('/:id', (req, res) => {
       { model: Category },
       {
         model: Tag,
-        as: "product_tags"
+        as: ProductTag
       }
     ]
   }).then((results) => {
@@ -119,7 +118,7 @@ router.delete('/:id', (req, res) => {
       { model: Category },
       {
         model: Tag,
-        as: "product_tags"
+        as: ProductTag
       }
     ]
   }).then((results) => {
