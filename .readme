@@ -1,0 +1,32 @@
+# Ecommerce BackEnd
+
+## Project Description
+This project was created so online retail managers can accurately keep track of their inventory. This project really solidified my understanding of api routes.
+    
+## License
+![License](https://img.shields.io/badge/licence-Unlicense-blueviolet)
+This project is licensed under a Unlicense License. undefined.
+
+## Table of Contents
+    
+   - [Installation Instructions](#installation-instructions) 
+   - [Usage Information](#usage-information) 
+   - [Contribution Information](#contribution-information) 
+   - [Questions](#questions) 
+   - [Test Instructions](#test-instructions) 
+
+
+## Installation Instructions
+In the terminal, log into mysql and create the database. Then enter 'npm run seed', then 'node server.js'    
+   
+## Usage Information
+You can add new products, tags and ctegories. You can also update them and search by ids.    
+
+## Contribution Information
+Contributors on this project are:
+kirstens25 - www.github.com/kirstens25
+
+## Questions
+If you have any questions about this project, please contact the project creator: kirstens25 via email at kirstensegavac@gmail.com.
+
+## Test Instructions
