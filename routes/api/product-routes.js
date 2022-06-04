@@ -14,8 +14,8 @@ router.get('/', (req, res) => {
         model: Tag,
       }
     ]
-  }).then((results) => {
-    res.json(results);
+  }).then((findProducts) => {
+    res.json(findProducts);
   })
 });
 
@@ -58,7 +58,7 @@ router.post('/', (req, res) => {
       // if no product tags, just respond
       res.status(200).json(product);
     })
-    .then((productTagIds) => res.status(200).json(productTagIds))
+    .then((createProduct) => res.status(200).json(createProduct))
     .catch((err) => {
       console.log(err);
       res.status(400).json(err);
@@ -111,18 +111,17 @@ router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
   Product.destroy({
     where: {
-      id: req.body.id
+      id: req.params.id
     },
     // be sure to include its associated Category and Tag data
     include: [
       { model: Category },
-      {
-        model: Tag,
+      { model: Tag,
         as: ProductTag
       }
     ]
-  }).then((results) => {
-    res.json(results);
+  }).then((deleteProduct) => {
+    res.json(deleteProduct);
   })
 });
 

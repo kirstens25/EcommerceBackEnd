@@ -13,8 +13,8 @@ router.get('/', (req, res) => {
         attributes: ["id", "price", "name", "stock", "category_id"],
       },
     ],
-  }).then((categories) => {
-    res.json(categories);
+  }).then((findAllTags) => {
+    res.json(findAllTags);
   });
 });
 
@@ -22,14 +22,14 @@ router.get('/:id', (req, res) => {
   // find a single tag by its `id`
   Tag.findByPk(req.params.id, {
     // be sure to include its associated Product data
-    where: {
-      id: req.params.id
-    },
+   
     include: [{
       model: Product,
       attributes: ["id", "price", "name", "stock", "category_id"],
     },
     ],
+  }).then((findTag) => {
+    res.json(findTag);
   })
 });
 
@@ -37,8 +37,8 @@ router.post('/', (req, res) => {
   // create a new tag
   Tag.create({
     name: req.body.name
-  }).then((created) => {
-    res.json(created);
+  }).then((createdTag) => {
+    res.json(createdTag);
   })
 });
 
@@ -50,8 +50,8 @@ router.put('/:id', (req, res) => {
     where: {
       id: req.params.id
     }
-  }).then((updated) => {
-    res.json(updated);
+  }).then((updatedTag) => {
+    res.json(updatedTag);
   })
 });
 
@@ -61,8 +61,8 @@ router.delete('/:id', (req, res) => {
     where: {
       id: req.params.id
     }
-  }).then((results) => {
-    res.json(results);
+  }).then((deleteTag) => {
+    res.json(deleteTag);
   })
 });
 

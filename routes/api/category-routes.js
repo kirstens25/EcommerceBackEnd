@@ -56,9 +56,7 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   }).then((results) => {
-    res.json(results, {
-      data: 'ok'
-    })
+    res.json(results)
   })
 });
   module.exports = router;
